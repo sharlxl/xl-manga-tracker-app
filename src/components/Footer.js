@@ -4,7 +4,8 @@ const Footer = () => {
   console.log("Footer is rendering");
   return (
     <div>
-      <p>Footer is rendering</p>
+      <p>created from React.js, TailWind CSS.</p>
+      <p>Manga database from Jikan API</p>
     </div>
   );
 };
