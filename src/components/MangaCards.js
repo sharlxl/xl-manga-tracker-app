@@ -1,7 +1,7 @@
 import React from "react";
 
 const MangaCards = (props) => {
-  console.log("MangaCards is rendering");
+  // console.log("MangaCards is rendering");
   return (
     <div
       className=" flex flex-col place-content-center border-2 h-auto w-64 m-2 text-center p-1"

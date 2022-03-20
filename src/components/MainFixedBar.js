@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Input from "./Input";
 import { NavLink } from "react-router-dom";
 
-const MainFixedBar = () => {
+const MainFixedBar = (props) => {
   console.log("MainFixedBar is rendering");
   const [dropdown, setDropdown] = useState(false);
 
@@ -27,7 +27,7 @@ const MainFixedBar = () => {
           <div className="h-10 flex text-center items-center justify-evenly">
             <NavLink
               className="p-1 hover:text-violet-600 active:text-violet-700"
-              to="/top-mangas"
+              to="/home-page"
             >
               Home
             </NavLink>
@@ -43,12 +43,20 @@ const MainFixedBar = () => {
         )}
       </div>
 
-      <div className="flex">
-        <Input type="text" placeholder="search" />
-        <button className="text-center items-center w-10 sm:w-auto m-2 text-sm     font-medium  focus:ring-2 focus:ring-offset-2 focus:ring-offset-violet-300 focus:ring-gray-900 focus:outline-none transition-colors duration-200 rounded-md block  border-b bg-black hover:text-violet-500 border-violet-300 active:text-violet-700">
+      <form className="flex" onSubmit={props.onSubmit}>
+        <Input
+          type="text"
+          placeholder="search"
+          value={props.value}
+          onChange={props.onChange}
+        />
+        <button
+          type="submit"
+          className="text-center items-center w-10 sm:w-auto m-2 text-sm     font-medium  focus:ring-2 focus:ring-offset-2 focus:ring-offset-violet-300 focus:ring-gray-900 focus:outline-none transition-colors duration-200 rounded-md block  border-b bg-black hover:text-violet-500 border-violet-300 active:text-violet-700"
+        >
           Go!
         </button>
-      </div>
+      </form>
     </div>
   );
 };
