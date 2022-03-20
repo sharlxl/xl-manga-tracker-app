@@ -1,5 +1,4 @@
 import React from "react";
-import Buttons from "./Buttons";
 
 const MangaCards = (props) => {
   console.log("MangaCards is rendering");

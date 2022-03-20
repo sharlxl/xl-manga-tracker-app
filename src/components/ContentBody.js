@@ -9,7 +9,7 @@ const TOP_MANGA = "https://api.jikan.moe/v4/top/manga";
 
 const ContentBody = () => {
   console.log("ContentBody is rendering");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [topMangas, setTopMangas] = useState({});
 
@@ -62,6 +62,7 @@ const ContentBody = () => {
               title={!manga.title ? "" : manga.title}
               rank={!manga.rank ? "" : manga.rank}
               status={!manga.status ? "" : manga.status}
+              index={index}
             />
           );
         })
