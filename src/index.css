@@ -9,9 +9,9 @@ body {
   font-family: "ZCOOL XiaoWei", serif;
   color: whitesmoke;
   background: black;
-  background: linear-gradient(-45deg, #362468, #120042, #000000, #120042);
+  background: linear-gradient(-45deg, #6240c0, #120042, #000000, #120042);
   background-size: 400% 400%;
-  animation: gradient 30s ease infinite;
+  animation: gradient 15s ease infinite;
   height: 100vh;
 }
 

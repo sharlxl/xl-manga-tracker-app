@@ -2,11 +2,11 @@ import React from "react";
 import UtilityBar from "./UtilityBar";
 
 const MangaCards = (props) => {
-  // console.log("MangaCards is rendering");
+  // const [changeUtilityBar, setChangeUtilityBar] = useState(false);
 
   return (
-    <div className=" flex flex-col place-content-end border-2 h-auto w-64 m-2 text-center p-1">
-      <div className="text-xl">
+    <div className="flex flex-col mt-10 justify-between bg-violet-100/[.06] h-auto w-64 m-2 text-center p-1 shadow-md shadow-indigo-500/40">
+      <div className="text-xl place-content-start">
         <p>{props.title}</p>
       </div>
       <div className=" flex place-content-center">
@@ -21,6 +21,8 @@ const MangaCards = (props) => {
         chapters={props.chapters}
         onClickAddToList={props.onClickAddToList}
         changeUtilityBar={props.changeUtilityBar}
+        onClickRemove={props.onClickRemove}
+        onClickDetails={props.onClickDetails}
       />
     </div>
   );

@@ -1,5 +1,4 @@
 import React from "react";
-import LoadingSpinner from "../components/LoadingSpinner";
 import MangaCards from "../components/MangaCards";
 
 //if the reading list array is 0, it will display "Your list is empty!"
@@ -8,7 +7,7 @@ import MangaCards from "../components/MangaCards";
 const ReadingList = (props) => {
   let changeUtilityBar = true;
   return (
-    <div className="flex flex-wrap justify-evenly">
+    <div className="flex flex-wrap justify-evenly mt-20">
       {props.readingList.length == 0 ? (
         <div>
           <h2>Your list is empty!</h2>
@@ -28,6 +27,7 @@ const ReadingList = (props) => {
               index={index}
               onClickAddToList={props.onClickAddToList}
               changeUtilityBar={changeUtilityBar}
+              onClickRemove={props.onClickRemove}
             />
           );
         })

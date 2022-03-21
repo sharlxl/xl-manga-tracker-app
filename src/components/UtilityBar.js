@@ -7,29 +7,47 @@ const UtilityBar = (props) => {
     <>
       {!props.changeUtilityBar ? (
         <div className="flex flex-row">
-          <button className="border-2 basis-1/6">♡</button>
+          <button className="border border-violet-500 rounded-full basis-1/6 hover:text-violet-500">
+            ☆
+          </button>
           <button
             id={props.id}
             onClick={props.onClickAddToList}
-            className="border-2 basis-4/6 text-sm"
+            className="border-y border-violet-500 basis-5/6 text-sm mx-1 hover:text-violet-500 "
           >
             Add to Reading List
           </button>
-          <button className="border-2 basis-1/6">•••</button>
+          <button
+            id={props.id}
+            onClick={props.onClickDetails}
+            className="border border-violet-500 rounded-full basis-1/6 hover:text-violet-500"
+          >
+            •••
+          </button>
         </div>
       ) : (
         <div className="flex flex-row">
-          <button index={props.index} className="border-2 basis-1/6">
+          <button
+            id={props.id}
+            className="border border-violet-500 rounded-full basis-[25%] hover:text-violet-500"
+            onClick={props.onClickRemove}
+          >
             ✘
           </button>
           <input
             type="text"
             id={props.id}
-            className="border-2 text-black text-center basis-2/6 text-sm"
+            className="bg-slate-900 text-slate-100 text-center basis-[25%] text-sm rounded-lg border border-slate-700 focus:outline-none focus:ring ring-violet-900  mx-1 max-w-[45%]"
             placeholder="Chapter"
           />
-          <p className="basis-2/6">/ {props.chapters}</p>
-          <button className="border-2 basis-1/6">•••</button>
+          <p className="basis-[30%] mr-1">/ {props.chapters}</p>
+          <button
+            id={props.id}
+            className="border border-violet-500 rounded-full basis-[25%] hover:text-violet-500"
+            onClick={props.onClickDetails}
+          >
+            •••
+          </button>
         </div>
       )}
     </>

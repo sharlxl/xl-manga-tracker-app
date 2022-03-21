@@ -17,7 +17,7 @@ const MainFixedBar = (props) => {
   };
 
   return (
-    <div className=" bg-tolopea-600 border y-4 border-tolopea-500 bore h-12 flex justify-between">
+    <div className="fixed top-0 w-screen bg-tolopea-600 border y-4 border-tolopea-500 bore h-12 flex justify-between">
       <div className="flex">
         <button
           className="h-10 w-10 p-1 hover:text-violet-600"
@@ -39,6 +39,12 @@ const MainFixedBar = (props) => {
             >
               Reading List
             </NavLink>
+            <NavLink
+              className="p-1 hover:text-violet-600 active:text-violet-700"
+              to="/bookmarks"
+            >
+              Bookmarks
+            </NavLink>
           </div>
         ) : (
           ""
@@ -54,7 +60,7 @@ const MainFixedBar = (props) => {
         />
         <button
           type="submit"
-          className="text-center items-center w-10 sm:w-auto m-2 text-sm     font-medium  focus:ring-2 focus:ring-offset-2 focus:ring-offset-violet-300 focus:ring-gray-900 focus:outline-none transition-colors duration-200 rounded-md block  border-b bg-black hover:text-violet-500 border-violet-300 active:text-violet-700"
+          className="text-center items-center w-10 sm:w-auto m-2 text-sm font-medium focus:ring-2 focus:ring-offset-2 focus:ring-offset-violet-300 focus:ring-gray-900 focus:outline-none transition-colors duration-200 rounded-md block border-b bg-black hover:text-violet-500 border-violet-300 active:text-violet-700"
         >
           Go!
         </button>

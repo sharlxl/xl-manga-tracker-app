@@ -6,27 +6,36 @@ import LoadingSpinner from "../components/LoadingSpinner";
 
 const HomePage = (props) => {
   return (
-    <div className="flex flex-wrap justify-evenly">
-      {props.isLoading ? (
-        <LoadingSpinner />
-      ) : (
-        props.mangas.map((manga, index) => {
-          return (
-            <MangaCards
-              id={!manga.mal_id ? "" : manga.mal_id}
-              img={
-                !manga.images.jpg.image_url ? "" : manga.images.jpg.image_url
-              }
-              title={!manga.title ? "" : manga.title}
-              rank={!manga.rank ? "" : manga.rank}
-              status={!manga.status ? "" : manga.status}
-              index={index}
-              onClickAddToList={props.onClickAddToList}
-            />
-          );
-        })
-      )}
-    </div>
+    <>
+      <h1 className="text-4xl mt-20 text-center">X Manga Tracker </h1>
+      <div className="flex flex-wrap justify-evenly">
+        {props.isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          props.mangas.map((manga, index) => {
+            return (
+              <MangaCards
+                id={!manga.mal_id ? "NA" : manga.mal_id}
+                img={
+                  !manga.images.jpg.image_url
+                    ? "NA"
+                    : manga.images.jpg.image_url
+                }
+                title={!manga.title ? "NA" : manga.title}
+                rank={!manga.rank ? "NA" : manga.rank}
+                chapters={!manga.chapters ? "NA" : manga.chapters}
+                status={!manga.status ? "NA" : manga.status}
+                index={index}
+                onClickAddToList={props.onClickAddToList}
+                changeUtilityBar={manga.changeUtilityBar}
+                onClickRemove={props.onClickRemove}
+                onClickDetails={props.onClickDetails}
+              />
+            );
+          })
+        )}
+      </div>
+    </>
   );
 };
 
