@@ -12,13 +12,16 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [mangas, setMangas] = useState({});
+  const [readingList, setReadingList] = useState([]);
 
   const TOP_MANGA = "https://api.jikan.moe/v4/top/manga";
 
+  //state for input on search bar
   const onChangeSearchInput = (e) => {
     setSearchInput(e.target.value);
   };
 
+  //search on submit
   const onSubmitSearch = (e) => {
     e.preventDefault();
     let searchUrl = `https://api.jikan.moe/v4/manga?q=${searchInput}&limit=25`;
@@ -27,6 +30,7 @@ function App() {
     setSearchInput("");
   };
 
+  //fetch data function
   const fetchPost = async (url, signal) => {
     setIsLoading(true);
     setError(null);
@@ -44,6 +48,7 @@ function App() {
     setIsLoading(false);
   };
 
+  //fetch top mangas data for main page
   useEffect(() => {
     const controller = new AbortController();
 
@@ -54,12 +59,18 @@ function App() {
     };
   }, []);
 
+  //add to reading list
+  const onClickAddToList = (e) => {
+    const selectedManga = mangas.find(({ mal_id }) => mal_id == e.target.id);
+    setReadingList([selectedManga, ...readingList]);
+  };
+
   return (
     <div>
       <MainFixedBar
-        value={searchInput}
-        onChange={onChangeSearchInput}
-        onSubmit={onSubmitSearch}
+        searchInput={searchInput}
+        onChangeSearchInput={onChangeSearchInput}
+        onSubmitSearch={onSubmitSearch}
       />
       <main>
         <Suspense
@@ -73,9 +84,18 @@ function App() {
           <Route path="/" element={<Navigate replace to="/home-page" />} />
           <Route
             path="/home-page"
-            element={<HomePage mangas={mangas} isLoading={isLoading} />}
+            element={
+              <HomePage
+                mangas={mangas}
+                isLoading={isLoading}
+                onClickAddToList={onClickAddToList}
+              />
+            }
           />
-          <Route path="/reading-list" element={<ReadingList />} />
+          <Route
+            path="/reading-list"
+            element={<ReadingList readingList={readingList} />}
+          />
         </Routes>
       </main>
       <Footer />

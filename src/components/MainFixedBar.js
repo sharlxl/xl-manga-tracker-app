@@ -6,10 +6,12 @@ const MainFixedBar = (props) => {
   console.log("MainFixedBar is rendering");
   const [dropdown, setDropdown] = useState(false);
 
+  //function for menu button -> not a drop down but a slide in and out
+
   const onClickDropDown = () => {
     if (!dropdown) {
       setDropdown(true);
-    } else if (dropdown) {
+    } else {
       setDropdown(false);
     }
   };
@@ -43,12 +45,12 @@ const MainFixedBar = (props) => {
         )}
       </div>
 
-      <form className="flex" onSubmit={props.onSubmit}>
+      <form className="flex" onSubmit={props.onSubmitSearch}>
         <Input
           type="text"
           placeholder="search"
-          value={props.value}
-          onChange={props.onChange}
+          value={props.searchInput}
+          onChange={props.onChangeSearchInput}
         />
         <button
           type="submit"

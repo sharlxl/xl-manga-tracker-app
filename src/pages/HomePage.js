@@ -2,6 +2,8 @@ import React from "react";
 import MangaCards from "../components/MangaCards";
 import LoadingSpinner from "../components/LoadingSpinner";
 
+//if the manga is loading, a spinner will appear on the page until the manga list loads.
+
 const HomePage = (props) => {
   return (
     <div className="flex flex-wrap justify-evenly">
@@ -19,6 +21,7 @@ const HomePage = (props) => {
               rank={!manga.rank ? "" : manga.rank}
               status={!manga.status ? "" : manga.status}
               index={index}
+              onClickAddToList={props.onClickAddToList}
             />
           );
         })
