@@ -2,8 +2,6 @@ import React from "react";
 import UtilityBar from "./UtilityBar";
 
 const MangaCards = (props) => {
-  // const [changeUtilityBar, setChangeUtilityBar] = useState(false);
-
   return (
     <div className="flex flex-col mt-10 justify-between bg-violet-100/[.06] h-auto w-64 m-2 text-center p-1 shadow-md shadow-indigo-500/40">
       <div className="text-xl place-content-start">

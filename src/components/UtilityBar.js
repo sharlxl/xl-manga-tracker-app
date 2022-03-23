@@ -3,11 +3,18 @@ import React from "react";
 //if change utility bar is true, it means that manga has been added to reading list, therefore changing the buttons that is at the utility bar
 
 const UtilityBar = (props) => {
+  const onClickAlert = () => {
+    alert("sorry this function is not available yet!");
+  };
+
   return (
     <>
       {!props.changeUtilityBar ? (
         <div className="flex flex-row">
-          <button className="border border-violet-500 rounded-full basis-1/6 hover:text-violet-500">
+          <button
+            className="border border-violet-500 rounded-full basis-1/6 hover:text-violet-500"
+            onClick={onClickAlert}
+          >
             ☆
           </button>
           <button

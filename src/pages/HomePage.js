@@ -15,6 +15,7 @@ const HomePage = (props) => {
           props.mangas.map((manga, index) => {
             return (
               <MangaCards
+                key={index}
                 id={!manga.mal_id ? "NA" : manga.mal_id}
                 img={
                   !manga.images.jpg.image_url

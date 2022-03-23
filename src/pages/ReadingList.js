@@ -5,7 +5,6 @@ import MangaCards from "../components/MangaCards";
 //otherwise it will generate the selected managas
 
 const ReadingList = (props) => {
-  let changeUtilityBar = true;
   return (
     <div className="flex flex-wrap justify-evenly mt-20">
       {props.readingList.length == 0 ? (
@@ -26,8 +25,9 @@ const ReadingList = (props) => {
               chapters={!manga.chapters ? "???" : manga.chapters}
               index={index}
               onClickAddToList={props.onClickAddToList}
-              changeUtilityBar={changeUtilityBar}
+              changeUtilityBar={manga.changeUtilityBar}
               onClickRemove={props.onClickRemove}
+              onClickDetails={props.onClickDetails}
             />
           );
         })

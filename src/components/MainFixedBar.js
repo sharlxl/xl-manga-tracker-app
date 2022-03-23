@@ -2,8 +2,23 @@ import React, { useState } from "react";
 import Input from "./Input";
 import { NavLink } from "react-router-dom";
 
-const MainFixedBar = (props) => {
-  console.log("MainFixedBar is rendering");
+const MainFixedBar = ({ fetchPost }) => {
+  const [searchInput, setSearchInput] = useState("");
+
+  //state for input on search bar
+  const onChangeSearchInput = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  //search on submit
+  const onSubmitSearch = (e) => {
+    e.preventDefault();
+
+    let searchUrl = `https://api.jikan.moe/v4/manga?q=${searchInput}&limit=25&sfw`;
+    fetchPost(searchUrl);
+    setSearchInput("");
+  };
+
   const [dropdown, setDropdown] = useState(false);
 
   //function for menu button -> not a drop down but a slide in and out
@@ -51,12 +66,12 @@ const MainFixedBar = (props) => {
         )}
       </div>
 
-      <form className="flex" onSubmit={props.onSubmitSearch}>
+      <form className="flex" onSubmit={onSubmitSearch}>
         <Input
           type="text"
           placeholder="search"
-          value={props.searchInput}
-          onChange={props.onChangeSearchInput}
+          value={searchInput}
+          onChange={onChangeSearchInput}
         />
         <button
           type="submit"
