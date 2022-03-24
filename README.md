@@ -2,7 +2,7 @@
 
 http://xlmtracker.netlify.app
 
-GA SEI-35 Project 2
+GA SEI-35 Project 2  
 A React.js based App to help keep track your manga reading progress, for all avid manga readers out there like me.
 Styled with TailwindCSS
 
