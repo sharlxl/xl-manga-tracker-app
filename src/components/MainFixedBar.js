@@ -66,7 +66,7 @@ const MainFixedBar = ({ fetchPost }) => {
         )}
       </div>
 
-      <form className="flex" onSubmit={onSubmitSearch}>
+      <form className="flex mr-5" onSubmit={onSubmitSearch}>
         <Input
           type="text"
           placeholder="search"
@@ -75,7 +75,7 @@ const MainFixedBar = ({ fetchPost }) => {
         />
         <button
           type="submit"
-          className="text-center items-center w-10 sm:w-auto m-2 text-sm font-medium focus:ring-2 focus:ring-offset-2 focus:ring-offset-violet-300 focus:ring-gray-900 focus:outline-none transition-colors duration-200 rounded-md block border-b bg-black hover:text-violet-500 border-violet-300 active:text-violet-700"
+          className="px-2 text-center items-center w-10 sm:w-auto m-2 text-sm font-medium focus:ring-2 focus:ring-offset-2 focus:ring-offset-violet-300 focus:ring-gray-900 focus:outline-none transition-colors duration-200 rounded-md block border-b bg-black hover:text-violet-500 border-violet-300 active:text-violet-700"
         >
           Go!
         </button>
