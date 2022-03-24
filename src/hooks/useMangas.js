@@ -7,6 +7,7 @@ export const useMangas = () => {
   const [mangas, setMangas] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [topMangas, setTopMangas] = useState({});
 
   //fetch data function
   const fetchPost = async (url, signal) => {
@@ -19,7 +20,14 @@ export const useMangas = () => {
         throw new Error("Something Went Wrong :(");
       }
       const data = await res.data.data;
-      setMangas(data.map((manga) => ({ ...manga, changeUtilityBar: false })));
+      if (url == TOP_MANGA) {
+        setMangas(data.map((manga) => ({ ...manga, changeUtilityBar: false })));
+        setTopMangas(
+          data.map((manga) => ({ ...manga, changeUtilityBar: false }))
+        );
+      } else {
+        setMangas(data.map((manga) => ({ ...manga, changeUtilityBar: false })));
+      }
     } catch (err) {
       setError(err.message);
     }
@@ -38,6 +46,8 @@ export const useMangas = () => {
   }, []);
 
   return {
+    topMangas,
+    setTopMangas,
     mangas,
     setMangas,
     isLoading,

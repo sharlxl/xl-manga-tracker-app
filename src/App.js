@@ -9,10 +9,12 @@ import DetailsModal from "./components/DetailsModal";
 import Bookmarks from "./pages/Bookmarks";
 import { useModalManga } from "./hooks/useModalManga";
 import { useMangas } from "./hooks/useMangas";
+import TopMangas from "./pages/TopMangas";
 
 function App() {
   // imports from hooks
-  const { mangas, setMangas, isLoading, fetchPost } = useMangas();
+  const { topMangas, setTopMangas, mangas, setMangas, isLoading, fetchPost } =
+    useMangas();
   const { onClickDetails, modalManga, onClickModalBackButton } = useModalManga({
     mangas,
   });
@@ -29,6 +31,18 @@ function App() {
 
     setMangas(
       mangas.map((manga) => {
+        if (manga.mal_id == e.target.id) {
+          return {
+            ...manga,
+            changeUtilityBar: true,
+          };
+        }
+        return manga;
+      })
+    );
+
+    setTopMangas(
+      topMangas.map((manga) => {
         if (manga.mal_id == e.target.id) {
           return {
             ...manga,
@@ -58,6 +72,23 @@ function App() {
         return manga;
       })
     );
+    setTopMangas(
+      mangas.map((manga) => {
+        if (manga.mal_id == e.target.id) {
+          return {
+            ...manga,
+            changeUtilityBar: false,
+          };
+        }
+        return manga;
+      })
+    );
+  };
+
+  const [chapterInput, setChapterInput] = useState("");
+
+  const onChangeChapter = (e) => {
+    setChapterInput(e.target.value);
   };
 
   return (
@@ -89,6 +120,22 @@ function App() {
                 onClickAddToList={onClickAddToList}
                 onClickRemove={onClickRemove}
                 onClickDetails={onClickDetails}
+                chapterInput={chapterInput}
+                onChangeChapter={onChangeChapter}
+              />
+            }
+          />
+          <Route
+            path="/top-mangas"
+            element={
+              <TopMangas
+                topMangas={topMangas}
+                isLoading={isLoading}
+                onClickAddToList={onClickAddToList}
+                onClickRemove={onClickRemove}
+                onClickDetails={onClickDetails}
+                chapterInput={chapterInput}
+                onChangeChapter={onChangeChapter}
               />
             }
           />
@@ -99,6 +146,8 @@ function App() {
                 readingList={readingList}
                 onClickRemove={onClickRemove}
                 onClickDetails={onClickDetails}
+                chapterInput={chapterInput}
+                onChangeChapter={onChangeChapter}
               />
             }
           />

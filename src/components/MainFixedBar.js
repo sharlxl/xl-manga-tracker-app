@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import Input from "./Input";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const MainFixedBar = ({ fetchPost }) => {
   const [searchInput, setSearchInput] = useState("");
+  let navigate = useNavigate();
 
   //state for input on search bar
   const onChangeSearchInput = (e) => {
     setSearchInput(e.target.value);
   };
-
   //search on submit
   const onSubmitSearch = (e) => {
     e.preventDefault();
-
+    navigate("/home-page");
     let searchUrl = `https://api.jikan.moe/v4/manga?q=${searchInput}&sfw&order_by=rank`;
     fetchPost(searchUrl);
     setSearchInput("");
@@ -50,9 +50,15 @@ const MainFixedBar = ({ fetchPost }) => {
             </NavLink>
             <NavLink
               className="p-1 hover:text-violet-600 active:text-violet-700"
+              to="/top-mangas"
+            >
+              Top
+            </NavLink>
+            <NavLink
+              className="p-1 hover:text-violet-600 active:text-violet-700"
               to="/reading-list"
             >
-              Reading List
+              Reading
             </NavLink>
             <NavLink
               className="p-1 hover:text-violet-600 active:text-violet-700"
@@ -74,6 +80,7 @@ const MainFixedBar = ({ fetchPost }) => {
           onChange={onChangeSearchInput}
         />
         <button
+          name="goBtn"
           type="submit"
           className="px-2 text-center items-center w-10 sm:w-auto m-2 text-sm font-medium focus:ring-2 focus:ring-offset-2 focus:ring-offset-violet-300 focus:ring-gray-900 focus:outline-none transition-colors duration-200 rounded-md block border-b bg-black hover:text-violet-500 border-violet-300 active:text-violet-700"
         >
