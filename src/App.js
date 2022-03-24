@@ -11,15 +11,15 @@ import { useModalManga } from "./hooks/useModalManga";
 import { useMangas } from "./hooks/useMangas";
 
 function App() {
+  // imports from hooks
   const { mangas, setMangas, isLoading, fetchPost } = useMangas();
-
   const { onClickDetails, modalManga, onClickModalBackButton } = useModalManga({
     mangas,
   });
 
   const [readingList, setReadingList] = useState([]);
 
-  //add to reading list
+  //adds object to reading list
   const onClickAddToList = (e) => {
     const selectedManga = mangas.find(({ mal_id }) => mal_id == e.target.id);
     setReadingList([
@@ -40,6 +40,7 @@ function App() {
     );
   };
 
+  // remove from readinglist
   const onClickRemove = (e) => {
     const removeSelected = readingList.filter(
       (manga) => manga.mal_id != e.target.id

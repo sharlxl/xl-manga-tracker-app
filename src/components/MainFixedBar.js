@@ -14,7 +14,7 @@ const MainFixedBar = ({ fetchPost }) => {
   const onSubmitSearch = (e) => {
     e.preventDefault();
 
-    let searchUrl = `https://api.jikan.moe/v4/manga?q=${searchInput}&limit=25&sfw`;
+    let searchUrl = `https://api.jikan.moe/v4/manga?q=${searchInput}&sfw&order_by=rank`;
     fetchPost(searchUrl);
     setSearchInput("");
   };
