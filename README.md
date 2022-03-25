@@ -1,6 +1,6 @@
 # XL-Manga-Tracker-App
 
-http://xlmtracker.netlify.app
+http://xlmtracker.netlify.app  
 *you can use on your mobile too! layout is mobile-friendly!*
 
 GA SEI-35 Project 2  
